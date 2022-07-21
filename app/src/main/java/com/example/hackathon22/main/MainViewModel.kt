@@ -87,7 +87,7 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
             DoctorModel(
                 name = provider.fullName,
-                specialty = provider.specialties.first(),
+                specialty = pl.provider.specialties.first(),
                 imageRes =
                         if (provider.gender.equals("female", ignoreCase = true)) R.mipmap.female1
                         else R.mipmap.male1,
