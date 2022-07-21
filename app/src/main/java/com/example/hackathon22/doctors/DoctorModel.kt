@@ -8,4 +8,7 @@ data class DoctorModel(
     val name: String = "",
     val specialty: String = "",
     val imageRes: Int = 0,
+    val startTime: String = "",
+    val visitReasonId: String = "",
+    val plId: String = "",
 ) : Parcelable

@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:scaleType="centerCrop"
-        tools:src="@mipmap/doc1"
+        tools:src="@mipmap/female1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

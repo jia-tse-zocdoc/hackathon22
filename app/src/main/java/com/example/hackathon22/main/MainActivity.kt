@@ -46,7 +46,7 @@ class MainActivity : BaseActivityWithBinding<MainLayoutBinding>(){
                 .launchIn(this)
         }
 
-        triageAdapter = TriageAdapter()
+        triageAdapter = TriageAdapter(viewModel::triageClicked)
         binding.triageRecycler.apply {
             adapter = triageAdapter
             isNestedScrollingEnabled = true

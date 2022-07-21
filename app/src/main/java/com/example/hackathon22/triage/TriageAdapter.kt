@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackathon22.databinding.TriageItemBinding
 
-class TriageAdapter : ListAdapter<TriageModel, TriageViewHolder>(DiffCallback()) {
+class TriageAdapter (
+    val onItemClicked: (TriageModel) -> Unit
+): ListAdapter<TriageModel, TriageViewHolder>(DiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TriageViewHolder =
         TriageViewHolder(TriageItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: TriageViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener { onItemClicked(getItem(position)) }
     }
 }
 

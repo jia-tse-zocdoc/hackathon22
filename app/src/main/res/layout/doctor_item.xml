@@ -18,7 +18,7 @@
         android:layout_height="@dimen/doctor_item_height"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:src="@mipmap/doc1"
+        android:src="@mipmap/female1"
         />
 
     <TextView
