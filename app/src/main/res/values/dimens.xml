@@ -5,7 +5,9 @@
     <dimen name="half_padding">8dp</dimen>
     <dimen name="half_half_padding">4dp</dimen>
     <dimen name="triage_icon_size">60dp</dimen>
+    <dimen name="appointment_icon_size">48dp</dimen>
     <dimen name="triage_corner_radius">4dp</dimen>
+    <dimen name="appointments_corner_radius">8dp</dimen>
     <dimen name="doctor_item_height">200dp</dimen>
     <dimen name="doctor_item_width">150dp</dimen>
 </resources>
