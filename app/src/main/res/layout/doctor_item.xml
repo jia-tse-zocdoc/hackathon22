@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Jane Smith"
+        android:textStyle="bold"
         style="@style/TextAppearance.MaterialComponents.Subtitle1"
         android:layout_marginTop="@dimen/half_padding"
         />

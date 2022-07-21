@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackathon22.databinding.DoctorItemBinding
 
-class DoctorAdapter : ListAdapter<DoctorModel, DoctorViewHolder>(DiffCallback()) {
+class DoctorAdapter (
+    val onItemClicked: (DoctorModel) -> Unit
+) : ListAdapter<DoctorModel, DoctorViewHolder>(DiffCallback()) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorViewHolder =
         DoctorViewHolder(DoctorItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: DoctorViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener { onItemClicked(getItem(position)) }
     }
 }
 

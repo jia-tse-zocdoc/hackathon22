@@ -7,7 +7,9 @@ import com.example.hackathon22.R
 import com.example.hackathon22.doctors.DoctorModel
 import com.example.hackathon22.triage.TriageModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,12 +17,15 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(): ViewModel() {
 
-
     private val _triageState = MutableStateFlow(emptyList<TriageModel>())
     val triageState: StateFlow<List<TriageModel>> = _triageState
 
     private val _doctorState = MutableStateFlow(emptyList<DoctorModel>())
     val doctorState: StateFlow<List<DoctorModel>> = _doctorState
+
+    private val _action = MutableSharedFlow<Action>()
+    val action: SharedFlow<Action> = _action
+
 
     init {
         Log.e(TAG, "init view model")
@@ -54,6 +59,16 @@ class MainViewModel @Inject constructor(): ViewModel() {
 
     private fun emitTriage(list: List<TriageModel>) {
         viewModelScope.launch { _triageState.value = list }
+    }
+
+    fun doctorClicked(doctorModel: DoctorModel) {
+        Log.e(TAG, "doctor clicked: ${doctorModel.name}")
+
+        viewModelScope.launch { _action.emit(Action.OpenProfile(doctorModel))}
+    }
+
+    sealed class Action {
+        data class OpenProfile(val doctorModel: DoctorModel) : Action()
     }
 
     companion object {

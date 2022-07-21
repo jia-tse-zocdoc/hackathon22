@@ -13,6 +13,8 @@ import com.example.hackathon22.R
 import com.example.hackathon22.databinding.MainLayoutBinding
 import com.example.hackathon22.doctors.DoctorAdapter
 import com.example.hackathon22.doctors.DoctorModel
+import com.example.hackathon22.main.MainViewModel.Action.OpenProfile
+import com.example.hackathon22.profile.ProfileActivity
 import com.example.hackathon22.triage.TriageAdapter
 import com.example.hackathon22.triage.TriageModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,6 +40,10 @@ class MainActivity : BaseActivityWithBinding<MainLayoutBinding>(){
             viewModel.doctorState
                 .onEach(::bindDoctors)
                 .launchIn(this)
+
+            viewModel.action
+                .onEach(::handleAction)
+                .launchIn(this)
         }
 
         triageAdapter = TriageAdapter()
@@ -47,13 +53,18 @@ class MainActivity : BaseActivityWithBinding<MainLayoutBinding>(){
             layoutManager = GridLayoutManager(this@MainActivity, 3)
         }
 
-        doctorAdapter = DoctorAdapter()
+        doctorAdapter = DoctorAdapter(viewModel::doctorClicked)
+
         binding.doctorsRecycler.apply {
             adapter = doctorAdapter
             isNestedScrollingEnabled = true
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
             addItemDecoration(HorizontalMarginItemDecoration(resources.getDimensionPixelSize(R.dimen.half_half_padding)))
         }
+    }
+
+    private fun handleAction(action: MainViewModel.Action) {
+        startActivity(ProfileActivity.getIntent(this, (action as OpenProfile).doctorModel))
     }
 
     private fun bindTriage(models: List<TriageModel>) {
