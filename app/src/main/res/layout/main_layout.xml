@@ -13,8 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/default_padding"
-            android:paddingRight="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
             android:paddingTop="48dp"
             >
@@ -39,6 +37,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,12 +69,16 @@
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 android:clipToPadding="false"
                 android:clipChildren="false"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
             />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -97,6 +101,10 @@
                 android:id="@+id/doctors_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 />
 
             <TextView
@@ -106,12 +114,15 @@
                 android:layout_gravity="left|bottom"
                 style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_marginTop="32dp"
+                android:layout_marginLeft="@dimen/default_padding"
                 />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/appointments_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
                 />
         </androidx.appcompat.widget.LinearLayoutCompat>
 

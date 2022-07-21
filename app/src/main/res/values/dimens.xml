@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_padding">16dp</dimen>
+    <dimen name="half_padding">8dp</dimen>
+    <dimen name="half_half_padding">4dp</dimen>
     <dimen name="triage_icon_size">60dp</dimen>
     <dimen name="triage_corner_radius">4dp</dimen>
+    <dimen name="doctor_item_height">200dp</dimen>
+    <dimen name="doctor_item_width">150dp</dimen>
 </resources>
