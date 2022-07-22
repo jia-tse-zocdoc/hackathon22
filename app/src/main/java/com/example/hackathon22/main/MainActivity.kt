@@ -2,6 +2,7 @@ package com.example.hackathon22.main
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View.VISIBLE
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -97,6 +98,8 @@ class MainActivity : BaseActivityWithBinding<MainLayoutBinding>() {
             appointmentsAdapter.submitList(
                 appointmentsAdapter.currentList.toMutableList().apply { add(doctorModel) }
             )
+
+            binding.appointmentLabel.visibility = VISIBLE
             Log.e(TAG, "$doctorModel")
         }
     }

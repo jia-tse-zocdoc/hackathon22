@@ -108,6 +108,7 @@
                 />
 
             <TextView
+                android:id="@+id/appointment_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Appointments"
@@ -115,6 +116,7 @@
                 style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="@dimen/default_padding"
+                android:visibility="gone"
                 />
 
             <androidx.recyclerview.widget.RecyclerView

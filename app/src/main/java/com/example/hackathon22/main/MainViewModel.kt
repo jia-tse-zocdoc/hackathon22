@@ -50,9 +50,12 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     private fun setupDoctors() {
         listOf(
-            DoctorModel(name = "Jane Smith", imageRes = R.mipmap.female1, specialty = "Cardiologist"),
-            DoctorModel(name = "Jill Smith", imageRes = R.mipmap.female2, specialty = "Pulmonologist"),
-            DoctorModel(name = "Jack Smith", imageRes = R.mipmap.male1, specialty = "Pediatrician"),
+            DoctorModel(name = "Margaret Hall", imageRes = R.mipmap.female1, specialty = "Cardiologist"),
+            DoctorModel(name = "Wanda Johnson", imageRes = R.mipmap.female2, specialty = "Pulmonologist"),
+            DoctorModel(name = "Andrew Glasper", imageRes = R.mipmap.male2, specialty = "Dentist"),
+            DoctorModel(name = "Donna Walker", imageRes = R.mipmap.female3, specialty = "Podiatrist"),
+            DoctorModel(name = "Scott Utter", imageRes = R.mipmap.male3, specialty = "Pediatrician"),
+            DoctorModel(name = "James Howard", imageRes = R.mipmap.male1, specialty = "Pediatrician"),
         ).let(::emitDoctors)
     }
 
@@ -89,14 +92,17 @@ class MainViewModel @Inject constructor() : ViewModel() {
                 name = provider.fullName,
                 specialty = pl.provider.specialties.first(),
                 imageRes =
-                        if (provider.gender.equals("female", ignoreCase = true)) R.mipmap.female1
-                        else R.mipmap.male1,
+                        if (provider.gender.equals("female", ignoreCase = true)) getRandomFemale()
+                        else getRandomMale(),
                 startTime = availability.startTime,
                 visitReasonId = provider.defaultVR,
                 plId = pl.id
             ).also(::openProfile)
         }
     }
+
+    private fun getRandomFemale() = listOf(R.mipmap.female1, R.mipmap.female2, R.mipmap.female3).random()
+    private fun getRandomMale() = listOf(R.mipmap.male1, R.mipmap.male2, R.mipmap.male3).random()
 
     fun doctorClicked(doctorModel: DoctorModel) {
         openProfile(doctorModel)

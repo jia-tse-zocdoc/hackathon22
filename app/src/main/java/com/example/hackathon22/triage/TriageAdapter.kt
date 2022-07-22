@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hackathon22.Utils
 import com.example.hackathon22.databinding.TriageItemBinding
 
 class TriageAdapter (
@@ -23,6 +24,7 @@ class TriageViewHolder(private val binding: TriageItemBinding) : RecyclerView.Vi
     fun bind(item: TriageModel) {
         binding.icon.setImageResource(item.imageRes)
         binding.name.text = item.name
+        binding.root.setCardBackgroundColor(Utils.generateRandomColor())
     }
 }
 

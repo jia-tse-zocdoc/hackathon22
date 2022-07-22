@@ -4,11 +4,12 @@
     android:layout_height="128dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
-    app:cardCornerRadius="@dimen/triage_corner_radius"
+    app:cardCornerRadius="12dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
     android:layout_margin="4dp"
+    android:elevation="@dimen/cardview_default_elevation"
     >
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -28,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cardio"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_marginTop="@dimen/default_padding"
             />
     </androidx.appcompat.widget.LinearLayoutCompat>
